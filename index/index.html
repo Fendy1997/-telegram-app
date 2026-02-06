@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dating App</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            font-family: Arial;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid #FF6B6B;
+        }
+        h1 {
+            color: #333;
+            margin: 10px 0;
+        }
+        .info {
+            color: #666;
+            margin: 10px 0;
+        }
+        button {
+            background: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3db8af;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+             class="photo" 
+             alt="Photo">
+        
+        <h1>Анна, 24</h1>
+        <div class="info">📍 Москва</div>
+        <div class="info">Люблю путешествия и кофе</div>
+        
+        <div>
+            <button onclick="like()">❤️ Лайк</button>
+            <button onclick="dislike()">👎 Дизлайк</button>
+        </div>
+    </div>
+
+    <script>
+        function like() {
+            alert('❤️ Лайк!');
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.sendData('like');
+            }
+        }
+        function dislike() {
+            alert('👎 Дизлайк!');
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.sendData('dislike');
+            }
+        }
+    </script>
+</body>
+</html>
